@@ -2,12 +2,14 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const cors = require('cors');
 require("dotenv/config");
 
 // Creación de la aplicación
 const app = express();
 
-// Middleware para procesar el body de las peticiones
+// MIDDLEWARES
+app.use(cors());
 app.use(bodyParser.json());
 
 // Rutas
