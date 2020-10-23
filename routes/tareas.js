@@ -62,5 +62,23 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
+// ACTUALIZA UNA TAREA
+router.patch("/:id", async (req, res) => {
+  try {
+    // Actualiza la tarea dado su id
+    const resultado = await Tarea.updateOne(
+      { _id: req.params.id },
+      {
+        $set: req.body,
+      }
+    );
+    // Retorna la respuesta al cliente
+    res.json(resultado);
+  } catch (error) {
+    // Retorna el error al cliente
+    res.status(500).send(error);
+  }
+});
+
 // Exportar el router
 module.exports = router;
