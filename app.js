@@ -6,16 +6,13 @@ require("dotenv/config");
 // Creación de la aplicación
 const app = express();
 
-// Middlewares
+// Rutas
+const homeRoute = require('./routes/home')
+const tareasRoute = require('./routes/tareas')
 
-// Ruta inicial
-app.get("/", (req, res) => {
-  res.send("Hello Express");
-});
-
-app.get("/tareas", (req, res) => {
-  res.send("tareas");
-});
+// Middleware de rutas
+app.use('/', homeRoute);
+app.use('/tareas', tareasRoute);
 
 // Conexión a la base de datos
 mongoose.connect(process.env.DB_CONNECTION,
