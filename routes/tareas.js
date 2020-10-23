@@ -16,6 +16,18 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get("/:id", async (req, res) => {
+  try {
+    // Obtiene una tarea por su id
+    const tarea = await Tarea.findById(req.params.id);
+    // retorna la respuesta al cliente
+    res.json(tarea);
+  } catch (error) {
+    // Retorna el error al cliente
+    res.status(500).send(error);
+  }
+});
+
 router.post("/", async (req, res) => {
   try {
     // Crea el objeto
