@@ -4,6 +4,7 @@ const Tarea = require("../models/tarea");
 // Creación del router
 const router = express.Router();
 
+// OBTIENE TODAS LAS TAREAS
 router.get("/", async (req, res) => {
   try {
     // Obtiene todas las tareas
@@ -16,6 +17,7 @@ router.get("/", async (req, res) => {
   }
 });
 
+// OBTIENE UNA TAREA DADO EL ID
 router.get("/:id", async (req, res) => {
   try {
     // Obtiene una tarea por su id
@@ -28,6 +30,7 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+// CREA UNA TAREA
 router.post("/", async (req, res) => {
   try {
     // Crea el objeto
@@ -38,6 +41,19 @@ router.post("/", async (req, res) => {
     });
     // Guarda el objeto en la base de datos
     let resultado = await tarea.save();
+    // Retorna la respuesta al cliente
+    res.json(resultado);
+  } catch (error) {
+    // Retorna el error al cliente
+    res.status(500).send(error);
+  }
+});
+
+// ELIMINA UNA TAREA
+router.delete("/:id", async (req, res) => {
+  try {
+    // Elimina la tarea dado su id
+    const resultado = await Tarea.remove({ _id: req.params.id });
     // Retorna la respuesta al cliente
     res.json(resultado);
   } catch (error) {
