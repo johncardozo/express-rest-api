@@ -13,7 +13,7 @@ const TareaSchema = mongoose.Schema({
     },
     fecha: {
         type: Date,
-        defaul: Date.now
+        default: Date.now
     }
 })
 
