@@ -30,4 +30,6 @@ mongoose.connect(
 );
 
 // Inicio del servidor
-app.listen(3000);
+let puerto = process.env.PORT || 3000;
+app.listen(puerto);
+console.log(`Recibiendo peticiones por el puerto ${puerto}...`);

@@ -1,6 +1,6 @@
 # Rest API con Express + Mongodb
 
-Este proyecto expone un Rest API utilizando Express como framework web y MongoDB como base de datos NoSQL.
+Este proyecto expone un Rest API utilizando Express como framework web y MongoDB como base de datos NoSQL. En la carpeta `/client`hay un cliente de Nodejs que consume los endpoints expuestos por el RestAPI.
 
 ## Herramientas utilizadas
 - VSCode
@@ -16,9 +16,9 @@ Este proyecto expone un Rest API utilizando Express como framework web y MongoDB
     - Cors
     - Axios
     
-# Ejecución
+## Instalación
 
-Para ejecutar este proyecto, primero se deben instalar las dependencias con el comando:
+Para instalar las dependencias ejecute:
 
 ```bash
 npm install
@@ -29,6 +29,8 @@ Se debe crear un archivo `.env` que tenga la cadena de conexión a la base de da
 ```ini
 DB_CONNECTION=mongodb+srv://<usuario>:<password>@<url_base_de_datos>?retryWrites=true&w=majority
 ```
+
+## Ejecución
 
 Para ejecutar el proyecto, ejecute:
 ```bash
